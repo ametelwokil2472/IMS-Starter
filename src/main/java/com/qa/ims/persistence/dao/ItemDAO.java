@@ -54,6 +54,7 @@ public class ItemDAO implements Dao<Item> {
 		}
 		return null;
 	}
+
 	@Override
 	public Item create(Item Item) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
@@ -69,6 +70,7 @@ public class ItemDAO implements Dao<Item> {
 		}
 		return null;
 	}
+
 	@Override
 	public Item read(Long Item_id) {
 
@@ -85,8 +87,6 @@ public class ItemDAO implements Dao<Item> {
 		}
 		return null;
 	}
-
-
 
 	@Override
 	public Item update(Item Item) {
@@ -117,6 +117,5 @@ public class ItemDAO implements Dao<Item> {
 		}
 		return 0;
 	}
-
 
 }
