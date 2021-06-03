@@ -8,7 +8,7 @@ import com.qa.ims.utils.Utils;
 public enum Domain {
 
 	CUSTOMER("Information about customers"), ITEM("Individual Items"), ORDER("Purchases of items"),
-	STOP("To close the application");
+	ORDER_ITEM("Information about orders quantity"), STOP("To close the application");
 
 	public static final Logger LOGGER = LogManager.getLogger();
 
@@ -21,6 +21,7 @@ public enum Domain {
 	public String getDescription() {
 		return this.name() + ": " + this.description;
 	}
+	
 
 	public static void printDomains() {
 		for (Domain domain : Domain.values()) {

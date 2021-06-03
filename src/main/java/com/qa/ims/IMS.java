@@ -8,20 +8,24 @@ import com.qa.ims.controller.CrudController;
 import com.qa.ims.controller.CustomerController;
 import com.qa.ims.controller.ItemController;
 import com.qa.ims.controller.OrderController;
+import com.qa.ims.controller.OrderItemController;
 import com.qa.ims.persistence.dao.CustomerDAO;
 import com.qa.ims.persistence.dao.ItemDAO;
 import com.qa.ims.persistence.dao.OrderDAO;
+import com.qa.ims.persistence.dao.OrderItemDAO;
 import com.qa.ims.persistence.domain.Domain;
 import com.qa.ims.utils.DBUtils;
 import com.qa.ims.utils.Utils;
 
 public class IMS {
+	
 
 	public static final Logger LOGGER = LogManager.getLogger();
 
 	private final CustomerController customers;
 	private final ItemController items;
 	private final OrderController orders;
+	private final OrderItemController orderItem;
 	private final Utils utils;
 
 	public IMS() {
@@ -37,7 +41,8 @@ public class IMS {
 		final OrderDAO orderDAO = new OrderDAO();
 		this.orders = new OrderController(orderDAO, utils);
 	
-		
+		final OrderItemDAO orderItemDAO = new OrderItemDAO();
+		this.orderItem = new OrderItemController(orderItemDAO, utils);
 	}
 
 	public void imsSystem() {
@@ -71,12 +76,16 @@ public class IMS {
 			case ORDER:
 				active = this.orders;
 				break;
+			case ORDER_ITEM:
+				active = this.orderItem;
+				break;
 			case STOP:
 				return;
 			default:
 				break;
 			}
 
+			
 			LOGGER.info(() ->"What would you like to do with " + domain.name().toLowerCase() + ":");
 
 			Action.printActions();

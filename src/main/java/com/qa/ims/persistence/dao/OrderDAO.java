@@ -18,11 +18,9 @@ public class OrderDAO implements Dao<Orders> {
 	public Orders modelFromResultSet(ResultSet resultSet) throws SQLException {
 		Long order_id = resultSet.getLong("Order_id");
 		Long customer_id = resultSet.getLong("customer_id");
-		Long Item_id = resultSet.getLong("Item_id");
-		Long quantity = resultSet.getLong("quantity");
-		Long total_cost = resultSet.getLong("total_cost");
 		
-		return new Orders(order_id, customer_id, Item_id, quantity, total_cost);
+		
+		return new Orders(order_id, customer_id);
 	}
 	@Override
 	public List<Orders> readAll() {
@@ -59,12 +57,10 @@ public class OrderDAO implements Dao<Orders> {
 	public Orders create(Orders order) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
-						.prepareStatement("INSERT INTO orders(customer_id, item_id, quantity, total_cost) VALUES (?, ?, ?, ?)");) {
-			statement.setLong(1, order.getCustomer_id());
-			statement.setLong(2, order.getItem_id());
-			statement.setLong(3, order.getQuantity());
-			statement.setDouble
-			(4, order.getTotal_cost());
+						.prepareStatement("INSERT INTO orders(customer_id) VALUES (?)");) {
+						statement.setLong(1, order.getCustomer_id());
+				
+			
 			statement.executeUpdate();
 			return readLatest();
 		} catch (Exception e) {
@@ -94,11 +90,9 @@ public class OrderDAO implements Dao<Orders> {
 	public Orders update(Orders Order) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
-						.prepareStatement("UPDATE Orders SET customer_id = ?, item_id = ?, quantity = ? total_cost = ? WHERE order_id = ?");) {
+						.prepareStatement("UPDATE Orders SET customer_id = ? WHERE order_id = ?");) {
 			statement.setLong(1, Order.getOrder_id());
 			statement.setLong(2, Order.getCustomer_id());
-			statement.setLong(3, Order.getItem_id());
-			statement.setLong(4, Order.getQuantity());
 			statement.executeUpdate();
 			return read(Order.getOrder_id());
 		} catch (Exception e) {

@@ -23,6 +23,8 @@ public class ItemDAO implements Dao<Item> {
 		double Value = resultSet.getDouble("Value");
 		return new Item(Item_id, Item_name, Value);
 	}
+	
+	
 
 	@Override
 	public List<Item> readAll() {
