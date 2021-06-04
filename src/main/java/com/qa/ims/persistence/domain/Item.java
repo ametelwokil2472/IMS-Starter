@@ -10,8 +10,7 @@ public class Item {
 	this.setValue(Value);
 }
 	
-	
-	public Item(Long item_id, String Item_name, double value) {
+ public Item(Long item_id, String Item_name, double value) {
 		this.Item_id = item_id;
 		this.Item_name = Item_name;
 		this.Value = value;
