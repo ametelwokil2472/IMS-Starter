@@ -1,15 +1,20 @@
 #Inventory Management System
+
 The goal of this project was to build Inventory Management System application using a database backend to create, read, update and delete information about Items, customers, and orders. 
 create an application using Java and SQL which interacts with a managed database. 
+
 #System Requirements:
     Java 1.8
     Apache Maven
     Git (For Version Control)
 Here are some images from the development process and some screenshots of the final application 
-ER Model
+
+#ER Model
  ![alt tag](https://github.com/ametelwokil2472/IMS-Starter/blob/master/src/main/resources/PNG.png)
-![alt tag](https://github.com/ametelwokil2472/IMS-Starter/blob/master/src/main/resources/UML%20Diagram.png)
- 	UML for Classes 
+
+ #UML for Classes 
+ 
+ ![alt tag](https://github.com/ametelwokil2472/IMS-Starter/blob/master/src/main/resources/UML%20Diagram.png)
  	       
 # Technologies
 	Version Control System: Git
