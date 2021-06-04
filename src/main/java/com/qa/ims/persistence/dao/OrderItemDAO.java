@@ -95,11 +95,12 @@ public class OrderItemDAO implements Dao<OrderItem>{
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
 						.prepareStatement("UPDATE order_items SET order_id = ?, Item_id = ?, quantity = ?, total_cost = ? WHERE orderItems_id = ?");) {
-			statement.setLong(1, orderItem.getOrderItems_id());
-			statement.setLong(2, orderItem.getOrder_id());
-			statement.setLong(3, orderItem.getItems_id());
-			statement.setLong(4, orderItem.getQuantity());
-			statement.setDouble(5, orderItem.getTotal_cost());
+			
+			statement.setLong(1, orderItem.getOrder_id());
+			statement.setLong(2, orderItem.getItems_id());
+			statement.setLong(3, orderItem.getQuantity());
+			statement.setDouble(4, orderItem.getTotal_cost());
+			statement.setLong(5, orderItem.getOrderItems_id());
 			statement.executeUpdate();
 			return read(orderItem.getOrder_id());
 		} catch (Exception e) {

@@ -74,9 +74,9 @@ public class OrderItemController implements CrudController<OrderItem> {
 	public OrderItem update() {
 		LOGGER.info("Please enter the id of the order Item you would like to update");
 		Long orderItem_id = utils.getLong();
-		LOGGER.info("Please enter Order   id");
+		LOGGER.info("Please enter Order id");
 		Long order_id = utils.getLong();
-		LOGGER.info("Please enter Order Item  id");
+		LOGGER.info("Please enter  Item  id");
 		Long itm_Id = utils.getLong();
 		LOGGER.info("Please enter quantity");
 		Long quantity = utils.getLong();

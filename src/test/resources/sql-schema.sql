@@ -25,7 +25,6 @@ primary key(order_id),
 foreign key (customer_id)references customers(id) ON DELETE CASCADE
 );
 
-
 CREATE TABLE IF NOT EXISTS order_items(
 orderItems_id INT NOT NULL auto_increment,
 order_id INT NOT NULL,

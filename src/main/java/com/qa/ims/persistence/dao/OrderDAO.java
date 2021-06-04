@@ -91,8 +91,8 @@ public class OrderDAO implements Dao<Orders> {
 		try (Connection connection = DBUtils.getInstance().getConnection();
 				PreparedStatement statement = connection
 						.prepareStatement("UPDATE Orders SET customer_id = ? WHERE order_id = ?");) {
-			statement.setLong(1, Order.getOrder_id());
-			statement.setLong(2, Order.getCustomer_id());
+			statement.setLong(1, Order.getCustomer_id());
+			statement.setLong(2, Order.getOrder_id());
 			statement.executeUpdate();
 			return read(Order.getOrder_id());
 		} catch (Exception e) {

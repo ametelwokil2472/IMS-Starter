@@ -60,7 +60,6 @@ public class IMS {
 
 		} while (domain != Domain.STOP);
 	}
-
 	private void domainAction(Domain domain) {
 		boolean changeDomain = false;
 		do {
